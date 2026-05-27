@@ -7,15 +7,23 @@
 // // Test
 // console.log(reverseSentence("we like coding!"));  // "ew ekil !gnidoc"
 
-//  MIT TASK - M
-interface SquareNumber {
-  number: number;
-  square: number;
-}
+// // MIT TASK - M
+// interface SquareNumber {
+//   number: number;
+//   square: number;
+// }
 
-function getSquareNumbers(arr: number[]): SquareNumber[] {
-  return arr.map((num: number): SquareNumber => ({ number: num, square: num * num }));
-}
+// function getSquareNumbers(arr: number[]): SquareNumber[] {
+//   return arr.map((num: number): SquareNumber => ({ number: num, square: num * num }));
+// }
 
-// Test
-console.log(getSquareNumbers([1, 2, 3]));
+// // Test
+// console.log(getSquareNumbers([1, 2, 3]));
+
+
+//  MIT TASK - N
+function palindromCheck(str: string): boolean {
+  const reversed: string = str.split('').reverse().join('');
+  return str === reversed;
+}
+console.log(palindromCheck("dad"));  
