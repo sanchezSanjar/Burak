@@ -21,9 +21,32 @@
 // console.log(getSquareNumbers([1, 2, 3]));
 
 
-//  MIT TASK - N
-function palindromCheck(str: string): boolean {
-  const reversed: string = str.split('').reverse().join('');
-  return str === reversed;
+// // MIT TASK - N
+
+// function palindromCheck(str: string): boolean {
+//   const reversed: string = str.split('').reverse().join('');
+//   return str === reversed;
+// }
+// console.log(palindromCheck("dad"));  
+
+/* >>>>> Project Standards <<<<<<<:
+  - Logging standards
+  - Naming standards:
+    function, method, variable => CAMEL  goHome
+    class => PASCAL                      MemberService
+    folder => KEBAB
+    css => SNAKE                         botton_style
+  - Error handling
+
+*/ 
+
+
+// // MIT TASK - O
+
+function sumOfNumbers(arr: unknown[]): number {
+  return arr
+    .filter((item): item is number => typeof item === "number")
+    .reduce((sum, num) => sum + num, 0);
 }
-console.log(palindromCheck("dad"));  
+
+console.log(sumOfNumbers([10, "10", { son: 10 }, true, 35])); // 45
