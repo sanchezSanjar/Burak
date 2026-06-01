@@ -40,6 +40,13 @@
 
 */ 
 
+/* 
+  Traditional API
+  Rest API
+  GraphQL API
+  ...
+*/
+
 
 // // MIT TASK - O
 
