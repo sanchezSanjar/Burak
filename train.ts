@@ -50,10 +50,18 @@
 
 // // MIT TASK - O
 
-function sumOfNumbers(arr: unknown[]): number {
-  return arr
-    .filter((item): item is number => typeof item === "number")
-    .reduce((sum, num) => sum + num, 0);
+// function sumOfNumbers(arr: unknown[]): number {
+//   return arr
+//     .filter((item): item is number => typeof item === "number")
+//     .reduce((sum, num) => sum + num, 0);
+// }
+
+// console.log(sumOfNumbers([10, "10", { son: 10 }, true, 35])); // 45
+
+// // MIT TASK - P
+
+function objectToArray(obj: Record<string, any>): [string, any][] {
+  return Object.entries(obj);
 }
 
-console.log(sumOfNumbers([10, "10", { son: 10 }, true, 35])); // 45
+console.log(objectToArray({ a: 10, b: 20 })); // [["a", 10], ["b", 20]]
