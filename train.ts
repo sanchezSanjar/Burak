@@ -74,12 +74,21 @@
 
 // // MIT TASK - Q
 
-function hasProperty(
-  obj: Record<string, unknown>,
-  property: string
-): boolean {
-  return property in obj;
+// function hasProperty(
+//   obj: Record<string, unknown>,
+//   property: string
+// ): boolean {
+//   return property in obj;
+// }
+
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); // true
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "year")); // false
+
+// // MIT TASK - R
+
+function calculate(str: string): number {
+  const numbers = str.split("+");
+  return Number(numbers[0]) + Number(numbers[1]);
 }
 
-console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); // true
-console.log(hasProperty({ name: "BMW", model: "M3" }, "year")); // false
+console.log(calculate("1+3")); // 4
