@@ -2,6 +2,7 @@ import express from "express";
 const routerAdmin = express.Router();
 import restaurantController from './controllers/restaurant.controller';
 import router from "./router";
+import productController from "./controllers/product.controller";
 
 /** Restaurnat */
 routerAdmin.get('/',restaurantController.goHome);
@@ -15,6 +16,21 @@ routerAdmin.get("/logout", restaurantController.logout);
 routerAdmin.get("/check-me", restaurantController.checkAuthSession);
 
 /** Product */
+routerAdmin.get(
+    "/product/all",
+    restaurantController.verifyRestaurant, 
+    productController.getAllproducts);
+
+routerAdmin.post(
+    "/product/create",
+    restaurantController.verifyRestaurant, 
+    productController.createNewProduct);
+
+
+routerAdmin.post(
+    "/product/:id", 
+    restaurantController.verifyRestaurant, 
+    productController.updateChosenProduct);
 
 /** User */
 export default routerAdmin;
