@@ -109,7 +109,7 @@ restaurantController.checkAuthSession = async (
             res.send(`<script> alert("${req.session.member.memberNick}")</script>`);
         else res.send(`<script> alert("${Message.NOT_AUTHENTICATED}")</script>`);   
     } catch (err) {
-        console.log("Error, processLogin :", err);
+        console.log("Error, checkAuthSession :", err);
         res.send(err);
     } 
 };

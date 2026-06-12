@@ -3,14 +3,14 @@ import { MemberStatus, MemberType } from '../libs/enums/member.enum';
 
 const memberSchema = new Schema(
     {
-    memnerType: {
+    memberType: {
         type: String,
         enum: MemberType,
         default: MemberType.USER
     },
 
     memberStatus: {
-        type:String,
+        type:String, 
         enum: MemberStatus,
         default: MemberStatus.ACTIVE,
     },
