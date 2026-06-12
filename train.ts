@@ -86,9 +86,21 @@
 
 // // MIT TASK - R
 
-function calculate(str: string): number {
-  const numbers = str.split("+");
-  return Number(numbers[0]) + Number(numbers[1]);
+// function calculate(str: string): number {
+//   const numbers = str.split("+");
+//   return Number(numbers[0]) + Number(numbers[1]);
+// }
+
+// console.log(calculate("1+3")); // 4
+
+// // MIT TASK - S
+
+function missingNumber(nums: number[]): number {
+    const n = nums.length;
+    const expectedSum = (n * (n + 1)) / 2;
+    const actualSum = nums.reduce((acc, num) => acc + num, 0);
+    return expectedSum - actualSum;
 }
 
-console.log(calculate("1+3")); // 4
+// Test
+console.log(missingNumber([3, 0, 1])); // 2

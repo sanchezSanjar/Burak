@@ -36,7 +36,11 @@ app.use(
 
     })
 );
+<<<<<<< HEAD
 app.use(function(req, res, next) {
+=======
+app.use(function(req,res,next) {
+>>>>>>> 48196a430d0ecbd637ce80d0ad838c6c75ede2c8
     const sessionInstance = req.session as T;
     res.locals.member = sessionInstance.member;
     next();
