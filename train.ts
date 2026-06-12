@@ -95,12 +95,24 @@
 
 // // MIT TASK - S
 
-function missingNumber(nums: number[]): number {
-    const n = nums.length;
-    const expectedSum = (n * (n + 1)) / 2;
-    const actualSum = nums.reduce((acc, num) => acc + num, 0);
-    return expectedSum - actualSum;
+// function missingNumber(nums: number[]): number {
+//     const n = nums.length;
+//     const expectedSum = (n * (n + 1)) / 2;
+//     const actualSum = nums.reduce((acc, num) => acc + num, 0);
+//     return expectedSum - actualSum;
+// }
+
+// // Test
+// console.log(missingNumber([3, 0, 1])); // 2
+
+
+// // MIT TASK - T
+
+function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+    const merged = [...arr1, ...arr2];
+    return merged.sort((a, b) => a - b);
 }
 
 // Test
-console.log(missingNumber([3, 0, 1])); // 2
+console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30])); 
+// [0, 3, 4, 4, 6, 30, 31]
