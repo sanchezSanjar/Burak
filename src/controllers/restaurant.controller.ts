@@ -3,8 +3,10 @@ import {T} from "../libs/types/common";
 import MemberService from "../models/Member.service";
 import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
-import { HttpCode, Message } from "../libs/Errors";
-import Errors from "../libs/Errors";
+import Errors , { HttpCode, Message } from "../libs/Errors";
+
+
+//BSSR
 
 const memberService = new MemberService();
 
@@ -45,7 +47,7 @@ restaurantController.processSignup = async (
 ) => {
     try {
         console.log('processSignup')
-        const file = req.body;
+        const file = req.file;
         console.log(file);
         if(!file) throw new Errors(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
         
@@ -62,7 +64,9 @@ restaurantController.processSignup = async (
         console.log("Error, processSignup :", err);
         const message = 
         err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
-        res.send(`<script> alert("${message}"); window.location.replace ('admin/signup')</script>`);
+        res.send(
+            `<script> alert("${message}"); window.location.replace ('admin/signup')</script>`,
+        );
     }  
 }; 
 
@@ -84,7 +88,9 @@ restaurantController.processLogin = async (
         console.log("Error, processLogin :", err);
         const message = 
         err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
-        res.send(`<script> alert("${message}"); window.location.replace ('admin/login')</script>`);
+        res.send(
+            `<script> alert("${message}"); window.location.replace ('admin/login')</script>`,
+        );
     } 
 };
 
@@ -121,14 +127,15 @@ restaurantController.checkAuthSession = async (
 restaurantController.verifyRestaurant = (
     req: AdminRequest, 
     res: Response, 
-    next: NextFunction 
+    next: NextFunction,
 ) => {
     if (req.session?.member?.memberType === MemberType.RESTAURANT){
             req.member = req.session.member;
             next();
         } else {
          const message = Message.NOT_AUTHENTICATED;
-        res.send(`<script> alert("${message}"); window.location.replace('/admin/login');</script>`
+        res.send(
+            `<script> alert("${message}"); window.location.replace('/admin/login');</script>`,
          );
     } 
 };
