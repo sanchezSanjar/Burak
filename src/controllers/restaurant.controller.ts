@@ -126,13 +126,13 @@ restaurantController.updateChosenUser = async (req: Request, res: Response) => {
         console.log('updateChosenUser');
         const result = await memberService.updateChosenUser(req.body);
 
-        res.status(HttpCode.OK).json({data: result});
+        res.json({data: result});
+        console.log(result);
     } catch (err) {
         console.log("Error, updateChosenUser:", err);
         if (err instanceof Errors) res.status(err.code).json(err);
         else res.status(Errors.standard.code).json(Errors.standard);
-        
-    } 
+   } 
 };
 
 restaurantController.checkAuthSession = async (
