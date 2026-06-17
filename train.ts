@@ -108,11 +108,26 @@
 
 // // MIT TASK - T
 
-function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
-    const merged = [...arr1, ...arr2];
-    return merged.sort((a, b) => a - b);
+// function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+//     const merged = [...arr1, ...arr2];
+//     return merged.sort((a, b) => a - b);
+// }
+
+// // Test
+// console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30])); 
+// // [0, 3, 4, 4, 6, 30, 31]
+
+// // MIT TASK - U
+
+function sumOdds(number: number): number {
+    let count: number = 0;
+    for (let i = 1; i < number; i++) {
+        if (i % 2 !== 0) {
+            count++;
+        }
+    }
+    return count;
 }
 
-// Test
-console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30])); 
-// [0, 3, 4, 4, 6, 30, 31]
+console.log(sumOdds(9));  // 4  (1, 3, 5, 7)
+console.log(sumOdds(11)); // 5  (1, 3, 5, 7, 9)
