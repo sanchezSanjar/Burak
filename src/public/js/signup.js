@@ -58,5 +58,4 @@ function validateSignupForm() {
     return false;
   }
 
-    return false;
 }
