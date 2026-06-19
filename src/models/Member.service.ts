@@ -45,7 +45,7 @@ class MemberService {
     
     
     if(!isMatch) {
-        throw new Errors(HttpCode.UNAUTHORITHED, Message.WRONG_PASSWORD);
+        throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
     }
 
     return await this.memberModel.findById(member._id).lean().exec();
@@ -85,7 +85,7 @@ class MemberService {
         member.memberPassword
     );
     if (!isMatch) {
-        throw new Errors(HttpCode.UNAUTHORITHED, Message.WRONG_PASSWORD);
+        throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
     }
 
     return await this.memberModel.findById(member._id).exec();
