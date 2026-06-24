@@ -140,19 +140,39 @@
 
 // // MIT TASK - V
 
-function countChars(str: string): {[key: string]: number} {
-    const result: {[key: string]: number} = {};
+// function countChars(str: string): {[key: string]: number} {
+//     const result: {[key: string]: number} = {};
     
-    for (let char of str) {
-        if (result[char]) {
-            result[char]++;
-        } else {
-            result[char] = 1;
-        }
+//     for (let char of str) {
+//         if (result[char]) {
+//             result[char]++;
+//         } else {
+//             result[char] = 1;
+//         }
+//     }
+    
+//     return result;
+// }
+
+// console.log(countChars("hello")); // { h: 1, e: 1, l: 2, o: 1 }
+// console.log(countChars("javascript")); // { j: 1, a: 2, v: 1, s: 1, c: 1, r: 1, i: 1, p: 1, t: 1 }
+
+
+// // MIT TASK - W
+
+function chunkArray(array: number[], size: number): number[][] {
+    const result: number[][] = [];
+
+    for (let i = 0; i < array.length; i += size) {
+        const chunk = array.slice(i, i + size);
+        result.push(chunk);
     }
-    
+
     return result;
 }
 
-console.log(countChars("hello")); // { h: 1, e: 1, l: 2, o: 1 }
-console.log(countChars("javascript")); // { j: 1, a: 2, v: 1, s: 1, c: 1, r: 1, i: 1, p: 1, t: 1 }
+console.log(chunkArray([1,2,3,4,5,6,7,8,9,10], 3)); 
+// [[1,2,3], [4,5,6], [7,8,9], [10]]
+
+console.log(chunkArray([1,2,3,4,5,6], 2)); 
+// [[1,2], [3,4], [5,6]]
