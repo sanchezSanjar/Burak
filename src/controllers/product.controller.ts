@@ -19,6 +19,8 @@ productController.getAllProducts = async (req: Request, res: Response) => {
         console.log("getAllProducts");
         const data = await productService.getAllProducts();
         
+        console.log("products:", data);
+        
         res.render("products", {products:data});
     } catch (err) {
         console.log("Error, getAllProducts:", err);
@@ -57,11 +59,11 @@ productController.createNewProduct = async (
 productController.updateChosenProduct = async (req: Request, res: Response) => {
     try {
         console.log("updateChosenProduct");
-        const id = (req.params.id as string).trim();
+        const id = (req.params.id as string);
         
         const result = await productService.updateChosenProduct( id, req.body);
 
-        // res.status(HttpCode.OK).json({data: result});
+        res.status(HttpCode.OK).json({data: result});
         res.send("DONE!");
     } catch (err) {
         console.log("Error, updateChosenProduct:", err);
