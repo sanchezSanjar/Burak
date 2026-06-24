@@ -32,7 +32,7 @@ memberController.login = async (req: Request, res: Response) => {
     } catch (err) {
         console.log("Error, login :", err);
         if(err instanceof Errors) res.status(err.code).json(err);
-        res.send(err);
+        return res.status(Errors.standard.code).json(Errors.standard.message);
     } 
 };
 export default memberController;
