@@ -257,13 +257,13 @@ countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model
 Function ikkala arrayda ham ishtirok etgan qiymatlarni bir arrayda qaytarsin. 
 MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3]. */
 
-function findIntersection<T>(arr1: T[], arr2: T[]): T[] {
-  const set = new Set(arr2);
-  return arr1.filter(item => set.has(item));
-}
+// function findIntersection<T>(arr1: T[], arr2: T[]): T[] {
+//   const set = new Set(arr2);
+//   return arr1.filter(item => set.has(item));
+// }
 
-// Test
-console.log(findIntersection([1, 2, 3], [3, 2, 0])); // [2, 3]
+// // Test
+// console.log(findIntersection([1, 2, 3], [3, 2, 0])); // [2, 3]
 
 // Z-TASK
 
@@ -272,9 +272,9 @@ topgan array qabul qilsin. Function arraydagi
 juft sonlarni yigindisini qaytarsin. 
 MASALAN: sumEvens([1,2,3]) return 2. reply in ts */
 
-function sumEvens(nums: number[]): number {
-  return nums.filter((num) => num % 2 === 0).reduce((sum, num) => sum + num, 0);
-}
+// function sumEvens(nums: number[]): number {
+//   return nums.filter((num) => num % 2 === 0).reduce((sum, num) => sum + num, 0);
+// }
 
-// Example:
-console.log(sumEvens([1, 2, 3])); // 2
+// // Example:
+// console.log(sumEvens([1, 2, 3])); // 2
