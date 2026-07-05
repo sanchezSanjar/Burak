@@ -5,7 +5,11 @@ import jwt from "jsonwebtoken";
 
 
 class AuthService {
-    constructor() {}
+    private readonly secretToken;
+
+    constructor() {
+        this.secretToken = process.env.SECRET_TOKEN as string;
+    }
 
     public async createToken(payload: Member) {
         return new Promise((resolve, reject) =>{
@@ -15,12 +19,22 @@ class AuthService {
                         expiresIn: duration , 
                     },
                      (err, token)=> {
-                        if(err) reject(new Errors(HttpCode.UNAUTHORIZED, Message.TOKEN_CREATION_FAILED)
+                        if(err) 
+                            reject(new Errors(HttpCode.UNAUTHORIZED, Message.TOKEN_CREATION_FAILED)
                         );
                     else resolve(token as string);
                     }
              );
         });
+    }
+
+    public async checkAuth(token: string): Promise<Member> {
+        const result: Member = (await jwt.verify(
+            token,
+             this.secretToken
+            )) as Member;
+            console.log(`-----[AUTH] memberNick: ${result.memberNick} ----`);
+            return result;
     }
 }
 
