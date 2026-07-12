@@ -4,6 +4,8 @@ import memberController from './controllers/member.controller';
 import uploader from "./libs/utils/uploader";
 import productController from "./controllers/product.controller";
 import e from "express";
+import { verify } from "jsonwebtoken";
+import orderController from "./controllers/order.controller";
 
 
 /** Member */
@@ -26,6 +28,7 @@ router.get("/product/:id", memberController.retrieveAuth,
 router.get("/order/all", memberController.verifyAuth);
 
 /** Order */
-
+router.post("/order/create", memberController.verifyAuth,
+     orderController.createOrder);
 
 export default router;
