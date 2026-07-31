@@ -21,6 +21,8 @@ class ProductService {
 /**SPA */
 
 public async getProducts(inquiry: ProductInquiry): Promise<Product[]> {
+  const page = inquiry.page || 1;
+  const limit = inquiry.limit || 8;
   const match: T = {productStatus: ProductStatus.PROCESS};
   
   if(inquiry.productCollection)
